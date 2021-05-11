@@ -73,7 +73,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 {
 #pragma unused (target)
 
-    KYReachability *reachability = ((__bridge Reachability*)info);
+    KYReachability *reachability = ((__bridge KYReachability*)info);
 
     // We probably don't need an autoreleasepool here, as GCD docs state each queue has its own autorelease pool,
     // but what the heck eh?
@@ -87,7 +87,6 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 @implementation KYReachability
 
 #pragma mark - Class Constructor Methods
-reachability
 +(instancetype)WithHostName:(NSString*)hostname
 {
     return [KYReachability reachabilityWithHostname:hostname];
